@@ -1,0 +1,9 @@
+#!/bin/bash
+FILE="$1"
+name="${FILE%%.*}"
+ext="${FILE##*.}"
+if [ "$ext" = "c" ]; then
+	gcc -o "$name" "$FILE" && ./"$name"
+else
+	echo Can only compile .c files
+fi
