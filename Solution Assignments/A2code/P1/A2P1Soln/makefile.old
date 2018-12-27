@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-Wall -O2
+CLIBS=-lm
+
+linsolve: main.o checkresult.o gendata.o linsolve.o
+	$(CC) -o $@ $? $(CLIBS)
+
+clean:
+	rm *.o linsolve

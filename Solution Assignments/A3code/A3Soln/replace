@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#  Replace all occurance of $1 with $2 in the files specified by $3
+
+
+case $# in 
+0|1|2) echo 'Usage: replace pattern1 pattern2 file(s)' 1>&2; exit 1
+esac
+
+
+  
+
+pattern1="$1"
+pattern2="$2"
+
+echo
+echo Replacing $pattern1 with $pattern2 
+echo
+shift ; shift
+
+for i 
+ do 
+   echo '       ' FILE $i
+   sed s/$pattern1/$pattern2/g $i > xxx 
+   mv xxx $i 
+done
